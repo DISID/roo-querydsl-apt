@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.roo</groupId>
 	<artifactId>org.springframework.roo.querydsl.processor</artifactId>
-	<version>1.0.0.RELEASE</version>
+	<version>2.0.0.RELEASE</version>
 	
 	
 	 <distributionManagement>
@@ -21,9 +21,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
+			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-apt</artifactId>
-			<version>3.6.9</version>
+			<version>4.1.4</version>
 		</dependency>
 
 		<dependency>
@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>org.springframework.roo</groupId>
 			<artifactId>org.springframework.roo.addon.jpa.annotations</artifactId>
-			<version>2.0.0.M1</version>
+			<version>2.0.0.M2</version>
 			<scope>provided</scope>
 			<exclusions>
 				<exclusion>
