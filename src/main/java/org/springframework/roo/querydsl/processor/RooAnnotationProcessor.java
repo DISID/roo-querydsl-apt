@@ -11,20 +11,20 @@ import javax.persistence.Transient;
 
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
 
-import com.mysema.query.apt.AbstractQuerydslProcessor;
-import com.mysema.query.apt.Configuration;
-import com.mysema.query.apt.DefaultConfiguration;
-import com.mysema.query.apt.jpa.JPAConfiguration;
+import com.querydsl.apt.AbstractQuerydslProcessor;
+import com.querydsl.apt.Configuration;
+import com.querydsl.apt.DefaultConfiguration;
+import com.querydsl.apt.jpa.JPAConfiguration;
 
 /**
  * AnnotationProcessor for Spring Roo which takes {@link RooJpaEntity},
  * {@link MappedSuperclass}, {@link Embeddable} and {@link Transient} into account
  *
  * @author Paula Navarro
+ * @author Manuel Iborra
  *
  */
-@SupportedAnnotationTypes({"com.mysema.query.annotations .*", "javax.persistence.*",
-    "org.springframework.roo.addon.jpa.annotations.entity.*"})
+@SupportedAnnotationTypes({"com.querydsl.core.annotations.*","javax.persistence.*","org.springframework.roo.addon.jpa.annotations.entity.*"})
 public class RooAnnotationProcessor extends AbstractQuerydslProcessor {
 
   @Override
@@ -34,9 +34,8 @@ public class RooAnnotationProcessor extends AbstractQuerydslProcessor {
     Class<? extends Annotation> embeddable = Embeddable.class;
     Class<? extends Annotation> embedded = Embedded.class;
     Class<? extends Annotation> skip = Transient.class;
-    DefaultConfiguration conf = new JPAConfiguration(roundEnv, processingEnv.getOptions(), entity,
+    DefaultConfiguration conf = new JPAConfiguration(roundEnv, processingEnv, processingEnv.getOptions(), entity,
         superType, embeddable, embedded, skip);
     return conf;
   }
 }
-
